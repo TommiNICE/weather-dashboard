@@ -1,0 +1,14 @@
+import PropTypes from 'prop-types'
+
+const Footer = () => (
+    <div>
+        <p>Developed by Tom Varga</p>
+        <p>Contact me at </p>
+        <p>Link to 
+            <a href='https://github.com/TommiNICE/weather-dashboard' 
+            target="_blank"> source code</a>
+            </p>
+    </div>
+)
+
+export default Footer
