@@ -1,0 +1,13 @@
+POST http://localhost:3004/api/cities
+Content-Type: application/json
+
+{
+    "name": "Rotterdam",
+    "population": 1000000,
+    "country": "Netherlands",
+    "weather": "Sunny"
+}
+###
+
+GET http://localhost:3004/api/cities
+###

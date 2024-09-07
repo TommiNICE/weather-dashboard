@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types'
-
 const Footer = () => (
     <div>
         <p className=''>Developed by Tom Varga</p>
@@ -12,3 +10,4 @@ const Footer = () => (
 )
 
 export default Footer
+    
