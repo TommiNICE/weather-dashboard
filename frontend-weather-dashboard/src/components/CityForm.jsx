@@ -11,6 +11,8 @@ const CityForm = () => {
       weatherService.getWeatherData(city)
        .then(response => {
           setWeather(response.data)
+          console.log('Weather data:', JSON.stringify(response, null, 2))
+          console.log('City:', response[1].name)
         })
        .catch(error => {
           console.log('Error fetching weather:', error.message)
@@ -35,6 +37,8 @@ const CityForm = () => {
         placeholder="Enter city name"
       />
       <button type="submit">Get Weather</button>
+
+      {weather}
     </form>
   )
 }
