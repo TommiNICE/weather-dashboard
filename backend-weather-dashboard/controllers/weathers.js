@@ -12,11 +12,11 @@ weatherRouter.get('/', async (req, res, next) => {
     try {
         console.log(`Fetching weather data for ${city}`);
         const response = await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apiKey}`);
-        res.json(response.data);
+        res.json(response.data)
+        return
     } catch (error) {
-        res.status(500).json({ error: 'Failed to fetch weather data' });
+        return res.status(500).json({ error: 'Failed to fetch weather data' });
     }
-    next()
 })
 
 module.exports = weatherRouter

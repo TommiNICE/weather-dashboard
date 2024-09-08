@@ -6,4 +6,5 @@ const getWeatherData = async city => {
     return response.data
 }
 
+
 export default { getWeatherData }
