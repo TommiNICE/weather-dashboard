@@ -9,6 +9,7 @@ import {
   useNavigate,
   useMatch
 } from "react-router-dom"
+import CityForm from './components/CityForm'
 
 const App = () => {
   const [inputText, setInputText] = useState('')
@@ -32,6 +33,8 @@ const App = () => {
 
   return (
     <div className="App">
+      <h1>Weather Dashboard</h1>
+      <CityForm />
       <Footer />
     </div>
     )

@@ -4,6 +4,7 @@ require('express-async-errors')
 const app = express()
 const cors = require('cors')
 const citiesRouter = require('./controllers/cities')
+const weathersRouter = require('./controllers/weathers')
 /* const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login') */
 const middleware = require('./utils/middleware')
@@ -29,6 +30,7 @@ app.use(middleware.requestLogger)
 app.use(middleware.tokenExtractor)
 
 app.use('/api/cities', citiesRouter)
+app.use('/api/weather', weathersRouter)
 /* app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter) */
 

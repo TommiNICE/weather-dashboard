@@ -11,3 +11,8 @@ Content-Type: application/json
 
 GET http://localhost:3004/api/cities
 ###
+
+GET http://localhost:3004/api/weather?city=Zagreb
+
+###
+
