@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
+import WeatherForecast from './WeatherForecast'
 import weatherService from '../services/weathers'
-
 
 const CityForm = () => {
   const [city, setCity] = useState('')
@@ -46,15 +46,9 @@ const CityForm = () => {
         />
         <button type="submit">Get Weather</button>
       </form>
-      {weather.map((forecast, index) => (
-      <div key={index}>
-        <p>Date: {forecast.dateTime.toLocaleString()}</p>
-        <p>Temperature: {forecast.temperature}°C</p>
-        <p>Description: {forecast.description}</p>
-        <p>Wind Speed: {forecast.windSpeed} m/s</p>
-        <img src={`http://openweathermap.org/img/wn/${forecast.icon}.png`} alt="Weather icon" />
-      </div>
-    ))}
+      <WeatherForecast weather={weather} />
+      {/* Display country information, also own component 
+      CountryInfo, but using Togglable */}
     </div>
   )
 }

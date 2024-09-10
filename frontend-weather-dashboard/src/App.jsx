@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Footer from './components/Footer'
+import CityForm from './components/CityForm'
 import {
   Routes,
   Route,
@@ -9,7 +10,6 @@ import {
   useNavigate,
   useMatch
 } from "react-router-dom"
-import CityForm from './components/CityForm'
 
 const App = () => {
   const [inputText, setInputText] = useState('')

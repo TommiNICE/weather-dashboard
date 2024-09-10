@@ -18,7 +18,7 @@ weatherRouter.get('/', async (req, res, next) => {
         console.log(`Lat: ${lat}, Lon: ${lon}`)
 
         if (location) {
-            const weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&`)
+            const weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`)
             res.json(weatherResponse.data);
         } else {
             res.status(404).json({ error: 'City not found' });
