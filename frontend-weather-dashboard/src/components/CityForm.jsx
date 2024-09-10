@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import WeatherForecast from './WeatherForecast'
 import weatherService from '../services/weathers'
+import CountryInfo from './CountryInfo'
 
 const CityForm = () => {
   const [city, setCity] = useState('')
   const [weather, setWeather] = useState([])
+  const [country, setCountry] = useState('')
   
   useEffect(() => {
     if (city) {
@@ -18,7 +20,13 @@ const CityForm = () => {
           windSpeed: item.wind.speed
         }))
           setWeather(dailyForecasts)
-          console.log('Weather for city:', weather)
+          // Fetch country name for the city
+          const countryCity = response.city.name
+          console.log('Weather for city:', countryCity)
+          // Fetch country code for the city
+          const countryCode = response.city.country
+          setCountry(countryCode)
+          console.log('Country code:', country)
         })
        .catch(error => {
           console.log('Error fetching weather:', error.message)
@@ -49,6 +57,7 @@ const CityForm = () => {
       <WeatherForecast weather={weather} />
       {/* Display country information, also own component 
       CountryInfo, but using Togglable */}
+      <CountryInfo city={city} />
     </div>
   )
 }
