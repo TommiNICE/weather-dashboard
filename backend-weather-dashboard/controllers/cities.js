@@ -1,5 +1,4 @@
-/* const jwt = require('jsonwebtoken')
- */
+const jwt = require('jsonwebtoken')
 const cityRouter = require('express').Router()
 const City = require('../models/city')
 const middleware = require('../utils/middleware')
@@ -23,8 +22,16 @@ cityRouter.get('/:id', async (req, res, next) => {
     }
 })
 
-cityRouter.post('/', async (request, response) => {
-    const { name, population, country, weather } = request.body
+cityRouter.post('/', middleware.userExtractor, async (request, response) => {
+    const { name, population, country, weather, favorite } = request.body
+
+    const decodedToken = jwt.verify(request.token, process.env.SECRET)
+    console.log(decodedToken)
+    if (!decodedToken.id) {
+        return response.status(401).json({ error: 'token invalid' })
+    }
+
+  const userExists = request.user
 
     if (!name || !population || !country || !weather) {
         return response.status(400).json({ error: 'Name, population, country, and weather must be provided' })
@@ -39,7 +46,9 @@ cityRouter.post('/', async (request, response) => {
         name: name,
         population: population,
         country: country,
-        weather: weather
+        weather: weather,
+        favorite: favorite === undefined? false : favorite,
+        user: userExists.id
     })
 
     try {

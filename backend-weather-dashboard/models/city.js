@@ -5,14 +5,15 @@ const citySchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-/*         user: {
+        user: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'
-          } */
+          }
     },
     population: Number,
     country: String,
-    weather: String
+    weather: String,
+    favorite: Boolean
 })
 
 citySchema.set('toJSON', {

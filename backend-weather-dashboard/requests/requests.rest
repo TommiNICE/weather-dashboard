@@ -1,11 +1,13 @@
 POST http://localhost:3004/api/cities
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impkb2U1IiwiaWQiOiI2NmUwM2I5OTJjZGI5ZmViYmFjMGUzZmUiLCJpYXQiOjE3MjU5NzEzNjV9.RTOWEgvOcAD21prgFqqOV0uTzbjOUf8PCcjOttgNV4A
 
 {
-    "name": "Rotterdam",
+    "name": "Zabok",
     "population": 1000000,
-    "country": "Netherlands",
-    "weather": "Sunny"
+    "country": "Croatia",
+    "weather": "Sunny",
+    "favorite": true
 }
 ###
 
@@ -14,5 +16,25 @@ GET http://localhost:3004/api/cities
 
 GET http://localhost:3004/api/weather?city=Zagreb
 
+###
+
+POST http://localhost:3004/api/users
+Content-Type: application/json
+
+{
+    "username": "jdoe5",
+    "name": "Jane Doe",
+    "password": "qwerty123"
+  }
+###
+
+POST http://localhost:3004/api/login
+Content-Type: application/json
+
+{
+    "username": "jdoe5",
+    "name": "Jane Doe",
+    "password": "qwerty123"
+  }
 ###
 
